@@ -1,6 +1,6 @@
 <?php 
 
-require_once "../app/config/conexion.php";
+require_once "../config/conexion.php";
 
 $basedatos = new Database();
 $conexion = $basedatos->conectar();
