@@ -1,12 +1,8 @@
 <?php 
 
-require_once "../config/conexion.php";
+require_once __DIR__ . "/../app/controllers/apartamentoController.php";
 
-$basedatos = new Database();
-$conexion = $basedatos->conectar();
+$ApartamentoController = new apartamentoController();
+$ApartamentoController->index();
 
-if ($conexion) {
-    echo " Conexion Exitosa";
-} else {
-    echo "No fue posible establecer conexion";
-}
+?>
