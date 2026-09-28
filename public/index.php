@@ -1,6 +1,8 @@
 <?php
 
 require_once __DIR__ . "/../app/controllers/apartamentoController.php";
+require_once __DIR__ . "/../app/controllers/tipoViviendaController.php";
+require_once __DIR__ . "/../app/controllers/contratoController.php";
 
 $method = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];
@@ -8,10 +10,18 @@ $uri = $_SERVER['REQUEST_URI'];
 ?>
 
 <a href="/apartamento">Apartamentos</a>
+<a href="/tipoVivienda">Tipo Vivienda</a>
+<a href="/contrato">Contratos</a>
 
 <?php
 if ($method === 'GET' && $uri === '/apartamento') {
     $ApartamentoController = new apartamentoController();
     $ApartamentoController->index();
-}
+} elseif($method === 'GET' && $uri ==='/tipoVivienda'){
+    $TipoViviendaController = new tipoviviendaController();
+    $TipoViviendaController->index();
+} elseif($method === 'GET' && $uri === '/contrato'){
+    $ContratoController = new contratoController();
+    $ContratoController->index();
+ }
 ?>
