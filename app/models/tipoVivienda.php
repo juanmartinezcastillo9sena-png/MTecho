@@ -15,5 +15,20 @@ class TipoVivienda{
         $consulta = $this->connection->query($sql);
         return $consulta->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function guardar($nombre_tipo_vivienda){
+        try{
+            $sql= "INSERT INTO (nombre_tipo_vivienda)
+            VALUES(:nombre_tipo_vivienda)";
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindParam(":nombre_tipo_vivienda", $nombre_tipo_vivienda);
+
+            return $consulta->execute();
+
+
+        } catch(PDOException $e){
+            echo "Error al guardar tipo de vivienda";
+        }
+    }
 }
 ?>

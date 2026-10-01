@@ -29,4 +29,27 @@ class Apartamento
         $consulta = $this->connection->query($sql);
         return $consulta->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function guardar($id_usuario, $id_tipo_vivienda, $estado, $direccion, $area, $habitaciones, $bano, $parqueadero, $valor_canon)
+    {
+        try {
+            $sql =
+            "INSERT INTO apartamentos (id_usuario, id_tipo_vivienda, estado, direccion, area, habitaciones, bano, parqueadero, valor_canon)
+            VALUES (:id_usuario, :id_tipo_vivienda, :estado, :direccion, :area, :habitaciones, :bano, :parqueadero, :valor_canon)";
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindParam(":id_usuario", $id_usuario);
+            $consulta->bindParam(":id_tipo_vivienda", $id_tipo_vivienda);
+            $consulta->bindParam(":estado", $estado);
+            $consulta->bindParam(":direccion", $direccion);
+            $consulta->bindParam(":area", $area);
+            $consulta->bindParam(":habitaciones", $habitaciones);
+            $consulta->bindParam(":bano", $bano);
+            $consulta->bindParam(":parqueadero", $parqueadero);
+            $consulta->bindParam(":valor_canon", $valor_canon);
+
+            return $consulta->execute();
+        } catch (PDOException $e) {
+            echo "Error al guardar el apartamento";
+        }
+    }
 }

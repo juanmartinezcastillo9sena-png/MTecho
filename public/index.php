@@ -12,16 +12,44 @@ $uri = $_SERVER['REQUEST_URI'];
 <a href="/apartamento">Apartamentos</a>
 <a href="/tipoVivienda">Tipo Vivienda</a>
 <a href="/contrato">Contratos</a>
+<a href="/crear/apartamento">Crear Apartamento</a>
+<a href="/crear/tipoVivienda">Crear Tipo Vivienda</a>
 
 <?php
 if ($method === 'GET' && $uri === '/apartamento') {
     $ApartamentoController = new apartamentoController();
     $ApartamentoController->index();
-} elseif($method === 'GET' && $uri ==='/tipoVivienda'){
+} 
+elseif ($method === 'POST' && $uri === '/apartamento') {
+    $ApartamentoController = new apartamentoController();
+    $ApartamentoController->guardar();
+} 
+elseif ($method === 'GET' && $uri === '/crear/apartamento') {
+    $ApartamentoController = new apartamentoController();
+    $ApartamentoController->crear();
+}
+
+elseif ($method === 'GET' && $uri === '/tipoVivienda') {
     $TipoViviendaController = new tipoviviendaController();
     $TipoViviendaController->index();
-} elseif($method === 'GET' && $uri === '/contrato'){
+} 
+elseif ($method === 'POST' && $uri === '/tipoVivienda') {
+    $TipoViviendaController = new tipoviviendaController();
+    $TipoViviendaController->guardar();
+} 
+elseif ($method === 'GET' && $uri === '/crear/tipoVivienda') {
+    $TipoViviendaController = new tipoviviendaController();
+    $TipoViviendaController->crear();
+} 
+elseif ($method === 'GET' && $uri === '/contrato') {
     $ContratoController = new contratoController();
     $ContratoController->index();
- }
+} 
+
+
+
+
+
+
+
 ?>

@@ -1,12 +1,31 @@
-<form action"/apartamento" method="POST">
-    <input type="text" name="nombre">
-    <input type="text" name="tipovivienda">
+<form action="/apartamento" method="POST">
+
+    <label>Nombre</label>
+    <input type="text" name="id_usuario">
+    
+    <label>Tipo Vivienda</label>
+    <input type="text" name="id_tipo_vivienda">
+
+    <label>Estado</label>
     <input type="text" name="estado">
+
+    <label>Direccion</label>
     <input type="text" name="direccion">
+
+    <label>Área</label>
     <input type="number" name="area">
+
+    <label>Habitaciones</label>
     <input type="number" name="habitaciones">
-    <input type="number" name="banos">
+
+    <label>Baños</label>
+    <input type="number" name="bano">
+
+    <label>Parqueadero</label>
     <input type="number" name="parqueadero">
-    <input type="number" name="valor">
+
+    <label>Valor</label>
+    <input type="number" name="valor_canon">
+
     <button type="submit">Guardar</button>
 </form>
