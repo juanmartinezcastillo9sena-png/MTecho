@@ -3,7 +3,8 @@ require_once __DIR__ . "/../models/tipoVivienda.php";
 
 class tipoviviendaController
 {
-    public function index()
+    
+public function index()
     {
         $tipoViviendaModel = new TipoVivienda();
 
@@ -23,8 +24,8 @@ class tipoviviendaController
     public function guardar(){
         $nombre_tipo_vivienda=$_POST['nombre_tipo_vivienda'];
 
-        $tipo_vivienda=new TipoVivienda();
-        $resultado=$tipo_vivienda->guardar($nombre_tipo_vivienda);
+        $tipoVivienda=new TipoVivienda();
+        $resultado=$tipoVivienda->guardar($nombre_tipo_vivienda);
         if($resultado){
             echo "Tipo de vivienda creado correctamente";
             $this->index();

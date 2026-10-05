@@ -7,10 +7,10 @@
             <th>Nombre</th>
         </tr>
 
-        <?php foreach ($tipoViviendas as $tipo): ?>
+        <?php foreach ($tipoViviendas as $tipo_vivienda): ?>
             <tr>
-                <td><?= $tipo["id_tipo_vivienda"] ?></td>
-                <td><?= $tipo["nombre_tipo_vivienda"] ?></td>
+                <td><?= $tipo_vivienda["id_tipo_vivienda"] ?></td>
+                <td><?= $tipo_vivienda["nombre_tipo_vivienda"] ?></td>
             </tr>
         <?php endforeach; ?>
     </table>

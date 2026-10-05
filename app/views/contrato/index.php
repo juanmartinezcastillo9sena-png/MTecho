@@ -5,7 +5,7 @@
         <tr>
             <th>Contrato</th>
             <th>Usuario</th>
-            <th>Apartamento</th>
+            <th>Tipo Vivienda</th>
             <th>Fecha Inicio</th>
             <th>Fecha Terminacion</th>
             <th>Valor Contrato</th>
@@ -14,8 +14,8 @@
         <?php foreach ($contratos as $contrato): ?>
             <tr>
                 <td><?= $contrato["id_contrato"] ?></td>
-                <td><?= $contrato["id_usuario"] ?></td>
-                <td><?= $contrato["id_apartamentos"] ?></td>
+                <td><?= $contrato["nombre"] ?></td>
+                <td><?= $contrato["tipoVivienda"] ?></td>
                 <td><?= $contrato["fecha_inicio"] ?></td>
                 <td><?= $contrato["fecha_terminacion"] ?></td>
                 <td><?= $contrato["valor_contrato"] ?></td>

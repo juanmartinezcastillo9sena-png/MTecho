@@ -18,7 +18,7 @@ class TipoVivienda{
 
     public function guardar($nombre_tipo_vivienda){
         try{
-            $sql= "INSERT INTO (nombre_tipo_vivienda)
+            $sql= "INSERT INTO tipo_vivienda(nombre_tipo_vivienda)
             VALUES(:nombre_tipo_vivienda)";
             $consulta = $this->connection->prepare($sql);
             $consulta->bindParam(":nombre_tipo_vivienda", $nombre_tipo_vivienda);

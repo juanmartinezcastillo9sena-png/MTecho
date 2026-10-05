@@ -1,7 +1,7 @@
-<form action="/tipo_vivienda" method="POST">
+<form action="/tipoVivienda" method="POST">
 
-<label>Tipo Vivienda</label>
-<input type="text" name="tipo_vivienda">
+    <label>Tipo Vivienda</label>
+    <input type="text" name="nombre_tipo_vivienda">
 
-<button type="submit">Guardar</button>
+    <button type="submit">Guardar</button>
 </form>
