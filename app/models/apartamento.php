@@ -22,7 +22,8 @@ class Apartamento
                 a.habitaciones,
                 a.bano,
                 a.parqueadero,
-                a.valor_canon
+                a.valor_canon,
+                a.id_apartamentos
                 FROM apartamentos a
                 JOIN usuario u ON a.id_usuario=u.id_usuario
                 JOIN tipo_vivienda tp ON a.id_tipo_vivienda=tp.id_tipo_vivienda";
@@ -51,5 +52,13 @@ class Apartamento
         } catch (PDOException $e) {
             echo "Error al guardar el apartamento";
         }
+    }
+
+    public function GetByid($id){
+        $sql="SELECT * FROM apartamentos WHERE id_apartamentos=:id";
+        $consulta=$this->connection->prepare($sql);
+        $consulta->bindParam(":id", $id);
+        $consulta->execute();
+        return $consulta->fetch(PDO::FETCH_OBJ);
     }
 }

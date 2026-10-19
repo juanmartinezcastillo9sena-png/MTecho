@@ -6,6 +6,7 @@ require_once __DIR__ . "/../app/controllers/contratoController.php";
 
 $method = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];
+$ruta = parse_url($uri, PHP_URL_PATH);
 
 ?>
 
@@ -15,6 +16,7 @@ $uri = $_SERVER['REQUEST_URI'];
 <a href="/crear/apartamento">Crear Apartamento</a>
 <a href="/crear/tipoVivienda">Crear Tipo Vivienda</a>
 <a href="/crear/contrato">Crear Contrato</a>
+
 
 <?php
 //APARTAMENTO
@@ -29,6 +31,10 @@ elseif ($method === 'POST' && $uri === '/apartamento') {
 elseif ($method === 'GET' && $uri === '/crear/apartamento') {
     $ApartamentoController = new apartamentoController();
     $ApartamentoController->crear();
+}
+elseif ($method === 'GET' && $ruta === '/editar/apartamento') {
+    $ApartamentoController = new apartamentoController();
+    $ApartamentoController->editar();
 }
 //TIPO VIVIENDA
 elseif ($method === 'GET' && $uri === '/tipoVivienda') {
@@ -56,6 +62,7 @@ elseif ($method === 'GET' && $uri === '/crear/contrato') {
     $ContratoController = new contratoController();
     $ContratoController->crear();
 } 
+
 
 
 

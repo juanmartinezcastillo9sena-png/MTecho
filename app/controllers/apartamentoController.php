@@ -44,4 +44,14 @@ class apartamentoController
             echo "No se puede guardar el apartamento";
         }
     }
+
+    public function editar()
+    {
+        $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+        $modeloApartamento = new Apartamento();
+        $apartamento= $modeloApartamento->getById($id);
+
+
+        require_once __DIR__ . "/../views/apartamento/editar.php";
+    }
 }

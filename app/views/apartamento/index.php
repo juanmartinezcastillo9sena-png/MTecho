@@ -12,6 +12,7 @@
             <th>Baños</th>
             <th>Parqueadero</th>
             <th>Valor</th>
+            <th>Acciones</th>
         </tr>
 
         <?php foreach ($apartamentos as $apartamento): ?>
@@ -25,6 +26,7 @@
                 <td><?= $apartamento["bano"] ?></td>
                 <td><?= $apartamento["parqueadero"] ?></td>
                 <td><?= $apartamento["valor_canon"] ?></td>
+                <td><a href="/editar/apartamento?id=<?= $apartamento['id_apartamentos'] ?>">Editar</a></td>
             </tr>
         <?php endforeach; ?>
     </table>
