@@ -36,6 +36,11 @@ elseif ($method === 'GET' && $ruta === '/editar/apartamento') {
     $ApartamentoController = new apartamentoController();
     $ApartamentoController->editar();
 }
+elseif ($method === 'POST' && $ruta === '/actualizar/apartamento'){
+    $ApartamentoController = new apartamentoController();
+    $ApartamentoController->actualizar();
+}
+
 //TIPO VIVIENDA
 elseif ($method === 'GET' && $uri === '/tipoVivienda') {
     $TipoViviendaController = new tipoviviendaController();

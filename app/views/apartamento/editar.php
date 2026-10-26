@@ -1,5 +1,5 @@
 <h1>Actualizando Datos</h1>
-<form action="/apartamento/editar" method="POST">
+<form action="/actualizar/apartamento" method="POST">
     <input type="hidden" name="id_apartamentos" value=<?= $apartamento->id_apartamentos ?>>
 
     <label for="id_usuario">Usuario</label>
@@ -12,6 +12,8 @@
     <input type="text" name="direccion" value=<?= $apartamento->direccion ?>><br>
     <label for="area">Area</label>
     <input type="number" name="area" value=<?= $apartamento->area ?>><br>
+    <label for="area">Habitaciones</label>
+    <input type="number" name="habitaciones" value=<?= $apartamento->habitaciones ?>><br>
     <label for="bano">Baños</label>
     <input type="number" name="bano" value=<?= $apartamento->bano ?>><br>
     <label for="parqueadero">Parqueaderos</label>

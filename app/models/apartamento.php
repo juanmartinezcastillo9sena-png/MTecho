@@ -35,7 +35,7 @@ class Apartamento
     {
         try {
             $sql =
-            "INSERT INTO apartamentos (id_usuario, id_tipo_vivienda, estado, direccion, area, habitaciones, bano, parqueadero, valor_canon)
+                "INSERT INTO apartamentos (id_usuario, id_tipo_vivienda, estado, direccion, area, habitaciones, bano, parqueadero, valor_canon)
             VALUES (:id_usuario, :id_tipo_vivienda, :estado, :direccion, :area, :habitaciones, :bano, :parqueadero, :valor_canon)";
             $consulta = $this->connection->prepare($sql);
             $consulta->bindParam(":id_usuario", $id_usuario);
@@ -54,11 +54,44 @@ class Apartamento
         }
     }
 
-    public function GetByid($id){
-        $sql="SELECT * FROM apartamentos WHERE id_apartamentos=:id";
-        $consulta=$this->connection->prepare($sql);
+    public function GetByid($id)
+    {
+        $sql = "SELECT * FROM apartamentos WHERE id_apartamentos=:id";
+        $consulta = $this->connection->prepare($sql);
         $consulta->bindParam(":id", $id);
         $consulta->execute();
         return $consulta->fetch(PDO::FETCH_OBJ);
+    }
+
+    public function actualizar($id, $id_usuario, $id_tipo_vivienda, $estado, $direccion, $area, $habitaciones, $bano, $parqueadero, $valor_canon)
+    {
+        try {
+            $sql = "UPDATE apartamentos SET
+            id_usuario=:id_usuario,
+            id_tipo_vivienda=:id_tipo_vivienda,
+            estado=:estado,
+            direccion=:direccion,
+            area=:area,
+            habitaciones=:habitaciones,
+            bano=:bano,
+            parqueadero=:parqueadero,
+            valor_canon=:valor_canon
+            WHERE id_apartamentos=:id";
+            
+            $consulta=$this->connection->prepare($sql);
+            $consulta->bindParam(":id", $id);
+            $consulta->bindParam(":id_usuario", $id_usuario);
+            $consulta->bindParam(":id_tipo_vivienda", $id_tipo_vivienda);
+            $consulta->bindParam(":estado", $estado);
+            $consulta->bindParam(":direccion", $direccion);
+            $consulta->bindParam(":area", $area);
+            $consulta->bindParam(":habitaciones", $habitaciones);
+            $consulta->bindParam(":bano", $bano);
+            $consulta->bindParam(":parqueadero", $parqueadero);
+            $consulta->bindParam(":valor_canon", $valor_canon);
+            return $consulta->execute();
+        } catch (PDOException) {
+            echo "Error al actualizar el apartamento";
+        }
     }
 }

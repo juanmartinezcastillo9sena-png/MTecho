@@ -49,9 +49,32 @@ class apartamentoController
     {
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
         $modeloApartamento = new Apartamento();
-        $apartamento= $modeloApartamento->getById($id);
+        $apartamento = $modeloApartamento->getById($id);
 
 
         require_once __DIR__ . "/../views/apartamento/editar.php";
+    }
+
+    public function actualizar()
+    {
+        $id = filter_input(INPUT_POST, 'id_apartamentos', FILTER_VALIDATE_INT);
+        $id_usuario = $_POST['id_usuario'];
+        $id_tipo_vivienda = $_POST['id_tipo_vivienda'];
+        $estado = $_POST['estado'];
+        $direccion = $_POST['direccion'];
+        $area = $_POST['area'];
+        $habitaciones = $_POST['habitaciones'];
+        $bano = $_POST['bano'];
+        $parqueadero = $_POST['parqueadero'];
+        $valor_canon = $_POST['valor_canon'];
+
+        $apartamento = new Apartamento();
+        $resultado = $apartamento->actualizar($id, $id_usuario, $id_tipo_vivienda, $estado, $direccion, $area, $habitaciones, $bano, $parqueadero, $valor_canon);
+        if ($resultado) {
+            echo "Apartamento actualizado correctamente";
+            $this->index();
+        } else {
+            echo "No se puede actualizar el apartamento";
+        }
     }
 }
