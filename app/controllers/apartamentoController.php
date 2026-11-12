@@ -77,4 +77,21 @@ class apartamentoController
             echo "No se puede actualizar el apartamento";
         }
     }
+
+    public function eliminar()
+{
+    $id = filter_input(INPUT_POST, 'id_apartamentos', FILTER_VALIDATE_INT);
+
+    if ($id) {
+        $apartamento = new Apartamento();
+        $resultado = $apartamento->eliminar($id);
+
+        if ($resultado) {
+            header("Location: /apartamento");
+            exit;
+        }
+    }
+
+    echo "No se pudo eliminar el apartamento";
+}
 }

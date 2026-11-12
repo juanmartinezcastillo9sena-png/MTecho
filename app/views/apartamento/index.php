@@ -1,6 +1,6 @@
 <h1>Listado Apartamentos</h1>
 
-<?php if (!empty($apartamentos)) {?>
+<?php if (!empty($apartamentos)) { ?>
     <table border='2'>
         <tr>
             <th>Usuario</th>
@@ -26,10 +26,16 @@
                 <td><?= $apartamento["bano"] ?></td>
                 <td><?= $apartamento["parqueadero"] ?></td>
                 <td><?= $apartamento["valor_canon"] ?></td>
-                <td><a href="/editar/apartamento?id=<?= $apartamento['id_apartamentos'] ?>">Editar</a></td>
+                <td><a href="/editar/apartamento?id=<?= $apartamento['id_apartamentos'] ?>">Editar</a>
+                    <form action="/eliminar/apartamento" method="POST" style="display:inline"
+                        onsubmit="return confirm('¿Seguro que quieres eliminar este apartamento?');">
+                        <input type="hidden" name="id_apartamentos" value="<?= $apartamento['id_apartamentos'] ?>">
+                        <button type="submit">Eliminar</button>
+                    </form>
+                </td>
             </tr>
         <?php endforeach; ?>
     </table>
 <?php } else { ?>
-        <p>No hay productos para mostrar</p>
+    <p>No hay productos para mostrar</p>
 <?php } ?>

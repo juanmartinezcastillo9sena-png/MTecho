@@ -94,4 +94,17 @@ class Apartamento
             echo "Error al actualizar el apartamento";
         }
     }
+
+    public function eliminar($id)
+{
+    try {
+        $sql = "DELETE FROM apartamentos WHERE id_apartamentos = :id";
+        $consulta = $this->connection->prepare($sql);
+        $consulta->bindParam(":id", $id);
+        return $consulta->execute();
+    } catch (PDOException $e) {
+        echo "Error al eliminar el apartamento: " . $e->getMessage();
+        return false;
+    }
+}
 }
