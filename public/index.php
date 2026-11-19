@@ -20,56 +20,94 @@ $ruta = parse_url($uri, PHP_URL_PATH);
 
 <?php
 //APARTAMENTO
-if ($method === 'GET' && $uri === '/apartamento') {
-    $ApartamentoController = new apartamentoController();
-    $ApartamentoController->index();
-} 
-elseif ($method === 'POST' && $uri === '/apartamento') {
-    $ApartamentoController = new apartamentoController();
-    $ApartamentoController->guardar();
-} 
-elseif ($method === 'GET' && $uri === '/crear/apartamento') {
-    $ApartamentoController = new apartamentoController();
-    $ApartamentoController->crear();
+switch ($uri) {
+    case '/apartamento';
+        if ($method === 'GET') {
+            $ApartamentoController = new apartamentoController();
+            $ApartamentoController->index();
+        }
 }
-elseif ($method === 'GET' && $ruta === '/editar/apartamento') {
-    $ApartamentoController = new apartamentoController();
-    $ApartamentoController->editar();
+switch ($uri) {
+    case '/apartamento';
+        if ($method === 'POST') {
+            $ApartamentoController = new apartamentoController();
+            $ApartamentoController->guardar();
+        }
 }
-elseif ($method === 'POST' && $ruta === '/actualizar/apartamento'){
-    $ApartamentoController = new apartamentoController();
-    $ApartamentoController->actualizar();
+switch ($uri) {
+    case '/crear/apartamento';
+        if ($method === 'GET') {
+            $ApartamentoController = new apartamentoController();
+            $ApartamentoController->crear();
+        }
 }
-elseif ($method === 'POST' && $ruta === '/eliminar/apartamento') {
-    $ApartamentoController = new apartamentoController();
-    $ApartamentoController->eliminar();
+switch ($ruta) {
+    case '/editar/apartamento';
+        if ($method === 'GET') {
+            $ApartamentoController = new apartamentoController();
+            $ApartamentoController->editar();
+        }
+}
+switch ($ruta) {
+    case '/actualizar/apartamento';
+        if ($method === 'POST') {
+            $ApartamentoController = new apartamentoController();
+            $ApartamentoController->actualizar();
+        }
+}
+switch ($ruta) {
+    case '/eliminar/apartamento';
+        if ($method === 'POST') {
+            $ApartamentoController = new apartamentoController();
+            $ApartamentoController->eliminar();
+        }
 }
 //TIPO VIVIENDA
-elseif ($method === 'GET' && $uri === '/tipoVivienda') {
-    $TipoViviendaController = new tipoviviendaController();
-    $TipoViviendaController->index();
-} 
-elseif ($method === 'POST' && $uri === '/tipoVivienda') {
-    $TipoViviendaController = new tipoviviendaController();
-    $TipoViviendaController->guardar();
-} 
-elseif ($method === 'GET' && $uri === '/crear/tipoVivienda') {
-    $TipoViviendaController = new tipoviviendaController();
-    $TipoViviendaController->crear();
-} 
+switch ($uri) {
+    case '/tipoVivienda';
+        if ($method === 'GET') {
+            $TipoViviendaController = new tipoviviendaController();
+            $TipoViviendaController->index();
+        }
+}
+switch ($uri) {
+    case '/tipoVivienda';
+        if ($method === 'POST') {
+            $TipoViviendaController = new tipoviviendaController();
+            $TipoViviendaController->guardar();
+        }
+}
+switch ($uri) {
+    case '/crear/tipoVivienda';
+        if ($method === 'GET') {
+            $TipoViviendaController = new tipoviviendaController();
+            $TipoViviendaController->crear();
+        }
+}
+
 //CONTRATO
-elseif ($method === 'GET' && $uri === '/contrato') {
-    $ContratoController = new contratoController();
-    $ContratoController->index();
-} 
-elseif ($method === 'POST' && $uri === '/contrato') {
-    $ContratoController = new contratoController();
-    $ContratoController->guardar();
-} 
-elseif ($method === 'GET' && $uri === '/crear/contrato') {
-    $ContratoController = new contratoController();
-    $ContratoController->crear();
-} 
+switch ($uri) {
+    case '/contrato';
+        if ($method === 'GET') {
+            $ContratoController = new contratoController();
+            $ContratoController->index();
+        }
+}
+switch ($uri) {
+    case '/contrato';
+        if ($method === 'POST') {
+            $ContratoController = new contratoController();
+            $ContratoController->guardar();
+        }
+}
+switch ($uri) {
+    case '/crear/contrato';
+        if ($method === 'GET') {
+            $ContratoController = new contratoController();
+            $ContratoController->crear();
+        }
+}
+
 
 
 
