@@ -18,7 +18,7 @@ class Database{
     
 
     public function conectar(){
-        try{$dsn="mysql:host={$this->host};port={$this->port};dbname={$this->dbname}";
+        try{$dsn="mysql:host={$this->host};port={$this->port};dbname={$this->dbname};charset=utf8mb4";
 
             $this->connection =new PDO($dsn, $this->user, $this->pwd);
 

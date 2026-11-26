@@ -79,19 +79,29 @@ class apartamentoController
     }
 
     public function eliminar()
-{
-    $id = filter_input(INPUT_POST, 'id_apartamentos', FILTER_VALIDATE_INT);
+    {
+        $id = filter_input(INPUT_POST, 'id_apartamentos', FILTER_VALIDATE_INT);
 
-    if ($id) {
-        $apartamento = new Apartamento();
-        $resultado = $apartamento->eliminar($id);
+        if ($id) {
+            $apartamento = new Apartamento();
+            $resultado = $apartamento->eliminar($id);
 
-        if ($resultado) {
-            header("Location: /apartamento");
-            exit;
+            if ($resultado) {
+                header("Location: /apartamento");
+                exit;
+            }
         }
-    }
 
-    echo "No se pudo eliminar el apartamento";
-}
+        echo "No se pudo eliminar el apartamento";
+    }
+    public function listarjson()
+    {
+        header("Content-Type: application/json; charset=utf-8");
+        $apartamento = new Apartamento();
+        $apartamento1 = $apartamento->getAll();
+
+        $json = json_encode($apartamento1, JSON_UNESCAPED_UNICODE);
+
+        echo $json;
+    }
 }
